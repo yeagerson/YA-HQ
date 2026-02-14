@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YA HQ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Outfit',sans-serif;
+  background:#eef3f8;
+  color:#1a2a3a;
+  scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:15px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+.logo{
+  font-weight:800;
+  font-size:24px;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#1a2a3a;
+  font-weight:500;
+}
+
+.header-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.header-buttons a{
+  padding:8px 14px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.login{
+  background:#f0f3f7;
+  color:#1a2a3a;
+}
+
+.contact{
+  background:#f5b941;
+  color:white;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  background:url('https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero-content{
+  background:rgba(255,255,255,0.75);
+  padding:50px;
+  border-radius:20px;
+  backdrop-filter:blur(8px);
+}
+
+.hero h1{
+  font-size:44px;
+  margin:15px 0;
+}
+
+.hero p{
+  margin-bottom:25px;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+
+.btn{
+  padding:12px 22px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.primary{
+  background:#3a86ff;
+  color:white;
+}
+
+.secondary{
+  background:#4caf50;
+  color:white;
+}
+
+/* SEARCH */
+.search-bar{
+  margin:-30px auto 40px;
+  max-width:800px;
+  display:flex;
+  background:white;
+  border-radius:50px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+
+.search-bar input{
+  flex:1;
+  padding:16px 20px;
+  border:none;
+  outline:none;
+}
+
+.search-bar button{
+  padding:16px 25px;
+  border:none;
+  background:#3a86ff;
+  color:white;
+  cursor:pointer;
+}
+
+/* CARDS */
+.cards{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  padding:40px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card h3{
+  margin:15px 0 10px;
+}
+
+.card p{
+  padding:0 20px 20px;
+  font-size:14px;
+}
+
+.card a{
+  display:inline-block;
+  margin-bottom:20px;
+  padding:10px 22px;
+  background:#3a86ff;
+  color:white;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+/* NEW: CATALOGUE */
+.catalogue{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.catalogue h2{
+  margin-bottom:30px;
+}
+
+.catalogue-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.product{
+  background:white;
+  padding:15px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.product img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.product h4{
+  margin:10px 0 5px;
+}
+
+.product p{
+  margin-bottom:10px;
+}
+
+.buy{
+  display:inline-block;
+  padding:8px 16px;
+  background:#3a86ff;
+  color:white;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+/* ABOUT */
+.about{
+  text-align:center;
+  padding:60px 20px;
+  background:url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+}
+
+.about-box{
+  background:rgba(255,255,255,0.8);
+  padding:40px;
+  border-radius:20px;
+  display:inline-block;
+}
+
+.about h2{
+  margin-bottom:15px;
+}
+
+/* FOOTER */
+footer{
+  background:#e9eff5;
+  padding:50px 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:30px;
+}
+
+footer h4{
+  margin-bottom:12px;
+}
+
+footer a{
+  display:block;
+  text-decoration:none;
+  color:#1a2a3a;
+  margin:6px 0;
+}
+
+/* ASSISTANT */
+.assistant{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  max-width:220px;
+  font-size:14px;
+}
+.footer-icons{
+  display:flex;
+  gap:15px;
+  margin-top:10px;
+}
+
+.footer-icons a{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:white;
+  border-radius:50%;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  text-decoration:none;
+  font-size:18px;
+}
+/* VEDA PANEL */
+#veda-panel{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  z-index:9999;
+  font-family:'Outfit',sans-serif;
+}
+#veda-avatar{
+  width:48px;
+  height:48px;
+  background:linear-gradient(135deg,#7ad7ff,#7affc1);
+  color:#000;
+  font-weight:bold;
+  font-size:20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+#veda-bubble{
+  background:white;
+  padding:10px 14px;
+  border-radius:14px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  font-size:14px;
+  max-width:220px;
+}
+
+#veda-box{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+#veda-input{
+  border:none;
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:13px;
+  outline:none;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+/* HAMBURGER */
+#hamburger{
+  font-size:26px;
+  cursor:pointer;
+  display:block;
+}
+
+/* SETTINGS PANEL */
+#settings-panel{
+  position:fixed;
+  top:0;
+  right:-280px;
+  width:260px;
+  height:100vh;
+  background:white;
+  box-shadow:-5px 0 20px rgba(0,0,0,0.15);
+  padding:30px 20px;
+  transition:0.3s;
+  z-index:2000;
+}
+
+#settings-panel.active{
+  right:0;
+}
+
+.setting-item{
+  margin:20px 0;
+  font-weight:500;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* DARK MODE */
+.dark{
+  background:#0f1720;
+  color:#e6edf3;
+}
+
+.dark header{
+  background:rgba(15,23,32,0.9);
+}
+
+.dark .card,
+.dark .product,
+.dark footer{
+  background:#1b2633;
+  color:white;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{
+    display:block;
+  }
+  #hamburger{
+    display:none;
+  }
+}
+
+/* PREMIUM FOOTER */
+.main-footer{
+  background:#111827;
+  color:#e5e7eb;
+  padding:60px 40px 20px;
+}
+
+.footer-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.2fr;
+  gap:40px;
+}
+
+.footer-brand h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.footer-brand p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:0.8;
+}
+
+.footer-col h4{
+  margin-bottom:15px;
+  font-size:16px;
+}
+
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  color:#cbd5f5;
+  margin:6px 0;
+  font-size:14px;
+  transition:0.2s;
+}
+
+.footer-col a:hover{
+  color:white;
+}
+
+.footer-icons{
+  display:flex;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.footer-icons a{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#1f2937;
+  border-radius:50%;
+  font-size:18px;
+  text-decoration:none;
+  color:white;
+  transition:0.2s;
+}
+
+.footer-icons a:hover{
+  background:#3a86ff;
+}
+
+.footer-note{
+  font-size:13px;
+  opacity:0.7;
+}
+
+.footer-bottom{
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  font-size:13px;
+}
+
+.footer-mini-links a{
+  color:#cbd5f5;
+  margin-left:15px;
+  text-decoration:none;
+}
+
+.footer-mini-links a:hover{
+  color:white;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+
+  .footer-mini-links a{
+    margin:0 8px;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">YA</div>
+
+<div id="hamburger" onclick="toggleMenu()">☰</div>
+
+<nav id="main-nav">
+
+  <a href="#">Home</a>
+  <a href="catalogue.html">Catalogue</a>
+  <a href="about.html">About</a>
+<a href="pricing.html">Pricing</a>
+<a href="checkout.html">Buy Now</a>
+
+
+ <a href="https://ya-stores-2.myshopify.com/">Store</a>
+  <a href="https://yeagerson.github.io/A.EDUCATIONS_/">Education</a>
+  <a href="mailto:youremail@example.com">Contact</a>
+</nav>
+
+  <div class="header-buttons">
+    <a href="#" class="login" onclick="googleLogin()">Log In</a>
+
+    <a href="mailto:youremail@example.com" class="contact">Get in Touch</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <p>WELCOME TO YA</p>
+    <h1>Your Hub for Business, Shopping & Education</h1>
+    <p>Connecting knowledge and commerce in one place</p>
+    <div class="hero-buttons">
+      <a href="https://ya-stores-2.myshopify.com/" class="btn primary">Visit Our Store</a>
+      <a href="https://yeagerson.github.io/A.EDUCATIONS_/" class="btn secondary">Explore Education</a>
+    </div>
+  </div>
+</section>
+
+<div class="search-bar">
+  <input id="searchInput" type="text" placeholder="Search our site...">
+  <button onclick="siteSearch()">🔍</button>
+</div>
+
+<section class="cards">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?q=80&w=1974&auto=format&fit=crop">
+    <h3>Shop Online</h3>
+    <p>Browse our online store for the latest products and great deals.</p>
+    <a href="https://ya-stores-2.myshopify.com/">Shop Now</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1974&auto=format&fit=crop">
+    <h3>Learning Center</h3>
+    <p>Access courses, resources, and articles to boost your knowledge.</p>
+    <a href="https://yeagerson.github.io/A.EDUCATIONS_/">Learn More</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1974&auto=format&fit=crop">
+    <h3>Get in Touch</h3>
+    <p>Contact us quickly and easily. We’re here to help.</p>
+    <a href="mailto:youremail@example.com">Contact Us</a>
+  </div>
+</section>
+
+<!-- NEW CATALOGUE SECTION -->
+<section class="catalogue">
+  <h2>Featured Products</h2>
+  <div class="catalogue-grid">
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800">
+      <h4>Product One</h4>
+      <p>Rs2,320</p>
+      <a href="https://ya-stores-2.myshopify.com/" class="buy">View</a>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800">
+      <h4>Product Two</h4>
+      <p>Rs3,920</p>
+      <a href="https://ya-stores-2.myshopify.com/" class="buy">View</a>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1510552776732-01accd5f0f6b?q=80&w=800">
+      <h4>Product Three</h4>
+      <p>1,520</p>
+      <a href="https://ya-stores-2.myshopify.com/" class="buy">View</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-box">
+    <h2>Empowering Your Success in Business & Education</h2>
+    <p>Yeagerson connects commerce, knowledge, and innovation in one place.</p>
+  </div>
+</section>
+
+<footer class="main-footer">
+
+  <div class="footer-grid">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <h2>YA</h2>
+      <p>
+        A unified hub for commerce, learning, and digital services.
+        Built to feel less like a site, more like a place.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#">Home</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="about.html">About</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="https://ya-stores-2.myshopify.com/">Store</a>
+      <a href="https://yeagerson.github.io/A.EDUCATIONS_/">Education</a>
+      <a href="#">Custom Development</a>
+      <a href="#">Support</a>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-icons">
+        <a href="tel:+919469264220" title="Call">📞</a>
+        <a href="https://wa.me/919469264220" title="WhatsApp">💬</a>
+        <a href="mailto:johnyacorps@gmail.com" title="Email">✉️</a>
+      </div>
+      <p class="footer-note">
+        Available for business inquiries and collaborations.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 YA. All rights reserved.</span>
+    <div class="footer-mini-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Policies</a>
+    </div>
+  </div>
+
+</footer>
+
+
+
+<script>
+function siteSearch(){
+  const q = document.getElementById("searchInput").value.toLowerCase();
+  if(q.includes("store")) window.location.href="https://ya-stores-2.myshopify.com/";
+  else if(q.includes("education")) window.location.href="https://yeagerson.github.io/A.EDUCATIONS_/";
+  else if(q.includes("contact")) window.location.href="mailto:youremail@example.com";
+  else alert("Try searching: store, education, or contact");
+}
+</script>
+<div id="settings-panel">
+  <h3>Settings</h3>
+
+  <div class="setting-item">
+    Dark Mode
+    <input type="checkbox" id="darkToggle">
+  </div>
+
+  <div class="setting-item">
+    Language
+    <select id="langSelect">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+    </select>
+  </div>
+
+  <div class="setting-item">
+    Profile
+    <button onclick="alert('Profile settings coming soon')">
+      Open
+    </button>
+  </div>
+</div>
+
+<div id="veda-panel">
+  <div id="veda-avatar">V</div>
+  <div id="veda-box">
+    <div id="veda-bubble">...</div>
+    <input id="veda-input" type="text" placeholder="Talk to Veda..." />
+  </div>
+</div>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDPOU0ueu2PH8B3831Rn-r8eEXk3RTiXSo",
+    authDomain: "yeagerson.firebaseapp.com",
+    projectId: "yeagerson",
+    storageBucket: "yeagerson.firebasestorage.app",
+    messagingSenderId: "443587428426",
+    appId: "1:443587428426:web:84e9ffa2a67d003370a6b3",
+    measurementId: "G-RKL0XMJHMB"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script>
+const bubble = document.getElementById("veda-bubble");
+const input = document.getElementById("veda-input");
+
+let strikes = parseInt(localStorage.getItem("veda_strikes")) || 0;
+let banUntil = parseInt(localStorage.getItem("veda_ban")) || 0;
+
+// Ban check
+if (Date.now() < banUntil) {
+  document.body.innerHTML =
+    "<div style='display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;'><h2>You are banned for 7 days.</h2></div>";
+}
+
+// Voice
+function speak(text){
+  bubble.textContent = text;
+
+  const msg = new SpeechSynthesisUtterance(text);
+  const voices = speechSynthesis.getVoices();
+  msg.voice = voices.find(v=>v.name.toLowerCase().includes("female")) || voices[0];
+  msg.rate = 1;
+  msg.pitch = 1.2;
+  speechSynthesis.speak(msg);
+}
+
+// Greeting
+window.addEventListener("load", ()=>{
+  speak("Hi, I’m Veda. Welcome to YA. How can I help?");
+});
+
+// Basic AI logic
+function vedaAI(text){
+  text = text.toLowerCase();
+
+  const badWords = ["idiot","stupid","trash","hate"];
+  if(badWords.some(w=>text.includes(w))){
+    strikes++;
+    localStorage.setItem("veda_strikes",strikes);
+
+    if(strikes===1){
+      return "Let’s keep this respectful.";
+    }else if(strikes===2){
+      return "Final warning.";
+    }else{
+      const banTime = Date.now() + (7*24*60*60*1000);
+      localStorage.setItem("veda_ban",banTime);
+      location.reload();
+      return "You are banned.";
+    }
+  }
+
+  // Navigation intelligence
+  if(text.includes("store") || text.includes("buy")){
+    setTimeout(()=>window.location.href="https://ya-stores-2.myshopify.com/",1500);
+    return "Taking you to the store.";
+  }
+
+  if(text.includes("education") || text.includes("learn")){
+    setTimeout(()=>window.location.href="https://yeagerson.github.io/A.EDUCATIONS_/",1500);
+    return "Opening the learning center.";
+  }
+
+  if(text.includes("contact") || text.includes("phone") || text.includes("whatsapp")){
+    return "You can reach us through the contact icons in the footer.";
+  }
+
+  if(text.includes("who are you")){
+    return "I’m Veda. I keep this place running smoothly.";
+  }
+
+  if(text.includes("hello") || text.includes("hi")){
+    return "Hello. What can I help you with?";
+  }
+
+  // Default personality response
+  const replies = [
+    "Interesting. Tell me more.",
+    "I can guide you to the store or education section.",
+    "Try asking about the store, education, or contact.",
+    "You seem curious. I like that."
+  ];
+
+  return replies[Math.floor(Math.random()*replies.length)];
+}
+
+// Input handler
+input.addEventListener("keypress", function(e){
+  if(e.key === "Enter"){
+    const text = input.value;
+    input.value = "";
+    const response = vedaAI(text);
+    speak(response);
+  }
+});
+
+// Idle detection
+let idleTimer;
+function resetIdle(){
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(()=>{
+    speak("Still browsing? I can guide you.");
+  },30000);
+}
+document.onmousemove = resetIdle;
+document.onkeypress = resetIdle;
+resetIdle();
+function googleLogin(){
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider)
+    .then(result=>{
+      const user = result.user;
+
+      // Veda reacts
+      speak("Welcome back, " + user.displayName);
+
+      // Optional: show name in console
+      console.log("Logged in:", user.displayName, user.email);
+    })
+    .catch(error=>{
+      console.error(error);
+      speak("Login failed. Try again.");
+    });
+}
+// Hamburger toggle
+function toggleMenu(){
+  document.getElementById("settings-panel")
+    .classList.toggle("active");
+}
+
+// Dark mode toggle
+const darkToggle = document.getElementById("darkToggle");
+
+darkToggle.addEventListener("change", ()=>{
+  document.body.classList.toggle("dark");
+
+  if(document.body.classList.contains("dark")){
+    localStorage.setItem("theme","dark");
+  }else{
+    localStorage.setItem("theme","light");
+  }
+});
+
+// Load saved theme
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add("dark");
+  darkToggle.checked = true;
+}
+
+// Language toggle
+const langSelect = document.getElementById("langSelect");
+
+langSelect.addEventListener("change", ()=>{
+  const lang = langSelect.value;
+
+  if(lang==="hi"){
+    speak("भाषा हिंदी में बदल दी गई है");
+  }else{
+    speak("Language set to English");
+  }
+
+  localStorage.setItem("lang",lang);
+});
+
+// Load language
+const savedLang = localStorage.getItem("lang");
+if(savedLang){
+  langSelect.value = savedLang;
+}
+
+</script>
+
+
+</body>
+</html>
+
